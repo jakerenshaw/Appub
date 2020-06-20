@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PubSelectionViewController" customModule="Appub" customModuleProvider="target">
+            <connections>
+                <outlet property="backButton" destination="8b0-wG-zMd" id="VYr-Sp-5o7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8b0-wG-zMd">
+                    <rect key="frame" x="20" y="64" width="49" height="30"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <state key="normal" title="&lt; Back"/>
+                    <connections>
+                        <action selector="backButtonSelected:" destination="-1" eventType="touchUpInside" id="IhV-M6-bbB"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0W0-mf-UpM">
+                    <rect key="frame" x="87" y="124" width="240" height="34"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Enter Pub ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ara-C2-PvA">
+                            <rect key="frame" x="0.0" y="0.0" width="155" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pub ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4IX-AA-8HZ">
+                            <rect key="frame" x="167" y="0.0" width="73" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="5H3-CN-eUr"/>
+                    </constraints>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yy4-BE-5ic">
+                    <rect key="frame" x="207" y="178" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6S-XQ-0f9">
+                    <rect key="frame" x="183" y="198" width="48" height="30"/>
+                    <state key="normal" title="Search"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="yy4-BE-5ic" firstAttribute="top" secondItem="0W0-mf-UpM" secondAttribute="bottom" constant="20" id="16f-Br-bLa"/>
+                <constraint firstItem="N6S-XQ-0f9" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Ryz-4B-uzX"/>
+                <constraint firstItem="yy4-BE-5ic" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Szd-eK-TwV"/>
+                <constraint firstItem="8b0-wG-zMd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="WBe-0d-Gm2"/>
+                <constraint firstItem="0W0-mf-UpM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="eLk-Xv-Mjx"/>
+                <constraint firstItem="0W0-mf-UpM" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="gQR-Cz-rBj"/>
+                <constraint firstItem="8b0-wG-zMd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="nw6-OA-Drm"/>
+                <constraint firstItem="N6S-XQ-0f9" firstAttribute="top" secondItem="yy4-BE-5ic" secondAttribute="bottom" constant="20" id="vQf-cJ-NrO"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="102"/>
+        </view>
+    </objects>
+</document>

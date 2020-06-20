@@ -1,0 +1,6 @@
+framework module Pods_Appub {
+  umbrella header "Pods-Appub-umbrella.h"
+
+  export *
+  module * { export * }
+}
