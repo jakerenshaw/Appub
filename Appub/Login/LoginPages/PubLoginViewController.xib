@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="backButton" destination="vUg-su-zDH" id="v3a-eQ-Y3j"/>
                 <outlet property="emailTextField" destination="lTu-jo-dBm" id="g6D-H9-n2C"/>
+                <outlet property="errorLabel" destination="dfF-5B-d85" id="EYa-cI-W6E"/>
                 <outlet property="loginButton" destination="0T7-DU-iKT" id="QXf-xe-XwL"/>
                 <outlet property="passwordTextField" destination="Ao3-Hz-Vtc" id="R0H-xb-2eH"/>
                 <outlet property="registerButton" destination="GcG-Va-7UK" id="Iyz-ke-3eO"/>
@@ -36,12 +37,12 @@
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTu-jo-dBm">
                             <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" textContentType="username"/>
+                            <textInputTraits key="textInputTraits" textContentType="email"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ao3-Hz-Vtc">
                             <rect key="frame" x="0.0" y="46" width="200" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" textContentType="password"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                         </textField>
                     </subviews>
                     <constraints>
@@ -58,8 +59,14 @@
                         <action selector="loginButtonPressed:" destination="-1" eventType="touchUpInside" id="s7u-cr-YOL"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfF-5B-d85">
+                    <rect key="frame" x="207" y="518" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcG-Va-7UK">
-                    <rect key="frame" x="116" y="517" width="182" height="30"/>
+                    <rect key="frame" x="116" y="548" width="182" height="30"/>
                     <state key="normal" title="Not Registered? Click here">
                         <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     </state>
@@ -71,8 +78,10 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="0T7-DU-iKT" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="EAs-rA-hpE"/>
+                <constraint firstItem="dfF-5B-d85" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Evo-38-LOP"/>
+                <constraint firstItem="dfF-5B-d85" firstAttribute="top" secondItem="0T7-DU-iKT" secondAttribute="bottom" constant="30" id="Htv-ms-0li"/>
                 <constraint firstItem="vUg-su-zDH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="SXQ-Za-Idb"/>
-                <constraint firstItem="GcG-Va-7UK" firstAttribute="top" secondItem="0T7-DU-iKT" secondAttribute="bottom" constant="29" id="Vmr-As-cjN"/>
+                <constraint firstItem="GcG-Va-7UK" firstAttribute="top" secondItem="dfF-5B-d85" secondAttribute="bottom" constant="30" id="VNW-5m-Pej"/>
                 <constraint firstItem="vUg-su-zDH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="cj0-sO-cFA"/>
                 <constraint firstItem="GcG-Va-7UK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="hnV-4N-1Ye"/>
                 <constraint firstItem="0T7-DU-iKT" firstAttribute="top" secondItem="Z2Q-Ll-pPg" secondAttribute="bottom" constant="30" id="s4b-k7-cCi"/>

@@ -27,13 +27,24 @@ class LoginPageViewController: UIPageViewController {
     }()
     
     lazy var pubLoginViewController: PubLoginViewController = {
-        let controller = PubLoginViewController()
+        let controller = PubLoginViewController(firebaseAuth: self.firebaseAuth)
         controller.delegate = self
         return controller
     }()
     
     weak var loginDelegate: LoginPageViewControllerDelegate?
-
+    
+    let firebaseAuth: FirebaseAuth
+    
+    init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil, firebaseAuth: FirebaseAuth) {
+        self.firebaseAuth = firebaseAuth
+        super.init(transitionStyle: style, navigationOrientation: navigationOrientation)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.isModalInPresentation = true

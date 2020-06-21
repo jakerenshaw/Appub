@@ -5,5 +5,6 @@ target 'Appub' do
   use_frameworks!
   pod 'SnapKit'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
 
 end

@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         let loginPage = LoginPageViewController(
             transitionStyle: .scroll,
             navigationOrientation: .horizontal,
-            options: nil
+            firebaseAuth: self.firebaseAuth
         )
         loginPage.loginDelegate = self
         return loginPage
@@ -31,6 +31,10 @@ class ViewController: UIViewController {
     
     lazy var tabViewController: TabViewController = {
         TabViewController(tabs: [.squad])
+    }()
+    
+    lazy var firebaseAuth: FirebaseAuth = {
+        FirebaseAuth()
     }()
     
 
@@ -70,7 +74,6 @@ extension ViewController: LoginPageViewControllerDelegate {
     func pubLoginSucceeded() {
         self.loginPageViewController.dismiss(animated: true, completion: nil)
         self.removeSpinner()
-        print("Logged in")
     }
 }
 

@@ -13,6 +13,12 @@ protocol PubLoginViewControllerDelegate: class {
     func loginSucceeded()
 }
 
+enum LoginError: Int {
+    case InvalidEmail = 17008
+    case InvalidPassword = 17009
+    case EmailNotFound = 17011
+}
+
 class PubLoginViewController: UIViewController {
     
     @IBOutlet var backButton: UIButton!
@@ -20,7 +26,7 @@ class PubLoginViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
-    
+    @IBOutlet var errorLabel: UILabel!
     
     var pubRegisterViewController: PubRegisterViewController?
     
@@ -31,17 +37,40 @@ class PubLoginViewController: UIViewController {
         activitySpinner.tintColor = .label
         return activitySpinner
     }()
-
+    
+    let firebaseAuth: FirebaseAuth
+    
+    var email: String {
+        return self.emailTextField.text ?? ""
+    }
+    
+    var password: String {
+        return self.passwordTextField.text ?? ""
+    }
+    
+    init(firebaseAuth: FirebaseAuth) {
+        self.firebaseAuth = firebaseAuth
+        super.init(nibName: "PubLoginViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(removeKeyboard))
+        self.view.addGestureRecognizer(tap)
     }
     
     @IBAction func backButtonSelected(_ sender: Any) {
+        self.removeError()
         self.delegate?.goToPreviewPage()
     }
     
     @IBAction func registerButtonSelected(_ sender: Any) {
-        self.pubRegisterViewController = PubRegisterViewController()
+        self.removeError()
+        self.pubRegisterViewController = PubRegisterViewController(firebaseAuth: self.firebaseAuth)
         self.pubRegisterViewController?.delegate = self
         self.present(pubRegisterViewController!, animated: true, completion: nil)
     }
@@ -50,8 +79,9 @@ class PubLoginViewController: UIViewController {
         self.login()
     }
     
-    
     func login() {
+        self.removeKeyboard()
+        self.removeError()
         self.loginButton.isUserInteractionEnabled = false
         self.loginButton.setTitle("", for: .normal)
         self.addSpinner()
@@ -59,16 +89,45 @@ class PubLoginViewController: UIViewController {
     }
     
     func validateLogin() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            if self.emailCheck(),
-                self.passwordCheck() {
-                self.delegate?.loginSucceeded()
+        self.firebaseAuth.signInUser(email: self.email, password: self.password, completion: { error in
+            if let error = error {
+                self.loginFailed(error: (error as NSError))
             } else {
-                self.removeSpinner()
-                self.loginButton.isUserInteractionEnabled = true
-                self.loginButton.setTitle("Login", for: .normal)
+                self.delegate?.loginSucceeded()
             }
+        })
+    }
+
+    func loginFailed(error: NSError?) {
+        self.removeSpinner()
+        self.loginButton.isUserInteractionEnabled = true
+        self.loginButton.setTitle("Login", for: .normal)
+        if let error = error {
+            self.displayError(error: error)
         }
+    }
+    
+    func displayError(error: NSError) {
+        guard let loginError = LoginError(rawValue: error.code) else {
+            errorLabel.text = "An error has occured. Please try again."
+            return
+        }
+        switch loginError {
+        case .InvalidEmail:
+            errorLabel.text = "Please enter a valid email"
+        case .EmailNotFound:
+            errorLabel.text = "Email address not found"
+        case .InvalidPassword:
+            errorLabel.text = "Please enter a valid password"
+        }
+    }
+    
+    func removeError() {
+        errorLabel.text = ""
+    }
+    
+    @objc func removeKeyboard() {
+        self.view.endEditing(true)
     }
     
     func addSpinner() {
@@ -82,14 +141,6 @@ class PubLoginViewController: UIViewController {
     func removeSpinner() {
         self.activitySpinner.stopAnimating()
         self.activitySpinner.removeFromSuperview()
-    }
-    
-    func emailCheck() -> Bool {
-        return true
-    }
-    
-    func passwordCheck() -> Bool {
-        return true
     }
     
 }
