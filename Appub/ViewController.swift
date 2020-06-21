@@ -11,16 +11,22 @@ import SnapKit
 
 class ViewController: UIViewController {
     
-    let spinner = UIActivityIndicatorView()
+    lazy var activitySpinner: UIActivityIndicatorView = {
+        let activitySpinner = UIActivityIndicatorView(style: .large)
+        activitySpinner.tintColor = .label
+        return activitySpinner
+    }()
     
     @IBOutlet var tabContainerView: UIView!
     
-    lazy var loginpageViewController: LoginPageViewController = {
-        LoginPageViewController(
+    lazy var loginPageViewController: LoginPageViewController = {
+        let loginPage = LoginPageViewController(
             transitionStyle: .scroll,
             navigationOrientation: .horizontal,
             options: nil
         )
+        loginPage.loginDelegate = self
+        return loginPage
     }()
     
     lazy var tabViewController: TabViewController = {
@@ -36,18 +42,21 @@ class ViewController: UIViewController {
     }
     
     func addSpinner() {
-        spinner.tintColor = .label
-        spinner.style = .large
-        self.view.addSubview(self.spinner)
-        self.spinner.snp.makeConstraints { (make) in
+        self.view.addSubview(self.activitySpinner)
+        self.activitySpinner.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-        self.spinner.startAnimating()
+        self.activitySpinner.startAnimating()
+    }
+    
+    func removeSpinner() {
+        self.activitySpinner.stopAnimating()
+        self.activitySpinner.removeFromSuperview()
     }
     
     func addLoginViewController() {
         DispatchQueue.main.async {
-            self.present(self.loginpageViewController, animated: true, completion: nil)
+            self.present(self.loginPageViewController, animated: true, completion: nil)
         }
     }
 
@@ -55,7 +64,13 @@ class ViewController: UIViewController {
         self.addChild(self.tabViewController)
         self.tabContainerView.addSubview(self.tabViewController.view)
     }
+}
 
-
+extension ViewController: LoginPageViewControllerDelegate {
+    func pubLoginSucceeded() {
+        self.loginPageViewController.dismiss(animated: true, completion: nil)
+        self.removeSpinner()
+        print("Logged in")
+    }
 }
 

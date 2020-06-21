@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LoginPageViewControllerDelegate: class {
+    func pubLoginSucceeded()
+}
+
 class LoginPageViewController: UIPageViewController {
     
     lazy var userSelectionViewController: UserSelectionViewController = {
@@ -27,6 +31,8 @@ class LoginPageViewController: UIPageViewController {
         controller.delegate = self
         return controller
     }()
+    
+    weak var loginDelegate: LoginPageViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +64,10 @@ extension LoginPageViewController: UserSelectionViewControllerDelegate {
 }
 
 extension LoginPageViewController: PubSelectionViewControllerDelegate, PubLoginViewControllerDelegate {
+    func loginSucceeded() {
+        self.loginDelegate?.pubLoginSucceeded()
+    }
+    
     func goToPreviewPage() {
         self.setViewControllers([self.userSelectionViewController], direction: .reverse, animated: true, completion: nil)
     }

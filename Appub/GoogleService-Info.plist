@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>364777037491-e92a85i1s9rungmqvd2nbc964fjp34hd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.364777037491-e92a85i1s9rungmqvd2nbc964fjp34hd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCLFVjlVsftglZ7elQvsYv_lXQNmq-oq00</string>
+	<key>GCM_SENDER_ID</key>
+	<string>364777037491</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>JakeRenshaw.Appub</string>
+	<key>PROJECT_ID</key>
+	<string>appub-e69ac</string>
+	<key>STORAGE_BUCKET</key>
+	<string>appub-e69ac.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:364777037491:ios:9786abbe161a242f329ac6</string>
+	<key>DATABASE_URL</key>
+	<string>https://appub-e69ac.firebaseio.com</string>
+</dict>
+</plist>

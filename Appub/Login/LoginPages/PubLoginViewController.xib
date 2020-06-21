@@ -10,6 +10,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PubLoginViewController" customModule="Appub" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="vUg-su-zDH" id="v3a-eQ-Y3j"/>
+                <outlet property="emailTextField" destination="lTu-jo-dBm" id="g6D-H9-n2C"/>
+                <outlet property="loginButton" destination="0T7-DU-iKT" id="QXf-xe-XwL"/>
+                <outlet property="passwordTextField" destination="Ao3-Hz-Vtc" id="R0H-xb-2eH"/>
+                <outlet property="registerButton" destination="GcG-Va-7UK" id="Iyz-ke-3eO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,7 +33,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Q-Ll-pPg">
                     <rect key="frame" x="107" y="348" width="200" height="80"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTu-jo-dBm">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTu-jo-dBm">
                             <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" textContentType="username"/>
@@ -44,11 +48,34 @@
                         <constraint firstAttribute="width" constant="200" id="zAf-bN-Gyh"/>
                     </constraints>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0T7-DU-iKT">
+                    <rect key="frame" x="185" y="458" width="44" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="6Xv-9k-ckz"/>
+                    </constraints>
+                    <state key="normal" title="Login"/>
+                    <connections>
+                        <action selector="loginButtonPressed:" destination="-1" eventType="touchUpInside" id="s7u-cr-YOL"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcG-Va-7UK">
+                    <rect key="frame" x="116" y="517" width="182" height="30"/>
+                    <state key="normal" title="Not Registered? Click here">
+                        <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                    <connections>
+                        <action selector="registerButtonSelected:" destination="-1" eventType="touchUpInside" id="Oip-Rb-0id"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="0T7-DU-iKT" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="EAs-rA-hpE"/>
                 <constraint firstItem="vUg-su-zDH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="SXQ-Za-Idb"/>
+                <constraint firstItem="GcG-Va-7UK" firstAttribute="top" secondItem="0T7-DU-iKT" secondAttribute="bottom" constant="29" id="Vmr-As-cjN"/>
                 <constraint firstItem="vUg-su-zDH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="cj0-sO-cFA"/>
+                <constraint firstItem="GcG-Va-7UK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="hnV-4N-1Ye"/>
+                <constraint firstItem="0T7-DU-iKT" firstAttribute="top" secondItem="Z2Q-Ll-pPg" secondAttribute="bottom" constant="30" id="s4b-k7-cCi"/>
                 <constraint firstItem="Z2Q-Ll-pPg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="304" id="uAp-Fd-Ffk"/>
                 <constraint firstItem="Z2Q-Ll-pPg" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="z1D-eH-aJk"/>
             </constraints>

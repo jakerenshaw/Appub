@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		90962E2B30E6F2C2C8D1A56C /* Pods_Appub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A58AC5C0B08E172B04C4C2 /* Pods_Appub.framework */; };
+		B63D4072249F8DFA002C0BFD /* PubRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D4070249F8DFA002C0BFD /* PubRegisterViewController.swift */; };
+		B63D4073249F8DFA002C0BFD /* PubRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B63D4071249F8DFA002C0BFD /* PubRegisterViewController.xib */; };
+		B63D4075249FA766002C0BFD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B63D4074249FA765002C0BFD /* GoogleService-Info.plist */; };
+		B63D4078249FAC55002C0BFD /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D4077249FAC55002C0BFD /* FirebaseAuth.swift */; };
 		B682E8B8249E650500A6F975 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682E8B7249E650500A6F975 /* AppDelegate.swift */; };
 		B682E8BA249E650500A6F975 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682E8B9249E650500A6F975 /* SceneDelegate.swift */; };
 		B682E8BC249E650500A6F975 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682E8BB249E650500A6F975 /* ViewController.swift */; };
@@ -32,6 +36,10 @@
 /* Begin PBXFileReference section */
 		59A58AC5C0B08E172B04C4C2 /* Pods_Appub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Appub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DBA7A21B5B56C64089D6C4 /* Pods-Appub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appub.debug.xcconfig"; path = "Target Support Files/Pods-Appub/Pods-Appub.debug.xcconfig"; sourceTree = "<group>"; };
+		B63D4070249F8DFA002C0BFD /* PubRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubRegisterViewController.swift; sourceTree = "<group>"; };
+		B63D4071249F8DFA002C0BFD /* PubRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PubRegisterViewController.xib; sourceTree = "<group>"; };
+		B63D4074249FA765002C0BFD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B63D4077249FAC55002C0BFD /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
 		B682E8B4249E650500A6F975 /* Appub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B682E8B7249E650500A6F975 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B682E8B9249E650500A6F975 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +94,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B63D4076249FAC40002C0BFD /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				B63D4077249FAC55002C0BFD /* FirebaseAuth.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		B682E8AB249E650500A6F975 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +123,8 @@
 		B682E8B6249E650500A6F975 /* Appub */ = {
 			isa = PBXGroup;
 			children = (
+				B63D4076249FAC40002C0BFD /* Firebase */,
+				B63D4074249FA765002C0BFD /* GoogleService-Info.plist */,
 				B682E8D8249E894D00A6F975 /* Login */,
 				B682E8CF249E853F00A6F975 /* Tab */,
 				B682E8CC249E71E000A6F975 /* PushNotifications */,
@@ -160,6 +178,8 @@
 				B682E8EB249E9C2E00A6F975 /* PubSelectionViewController.xib */,
 				B682E8EE249EA7F400A6F975 /* PubLoginViewController.swift */,
 				B682E8EF249EA7F400A6F975 /* PubLoginViewController.xib */,
+				B63D4070249F8DFA002C0BFD /* PubRegisterViewController.swift */,
+				B63D4071249F8DFA002C0BFD /* PubRegisterViewController.xib */,
 			);
 			path = LoginPages;
 			sourceTree = "<group>";
@@ -227,10 +247,12 @@
 				B682E8C4249E650900A6F975 /* LaunchScreen.storyboard in Resources */,
 				B682E8E4249E949900A6F975 /* LoginPageViewController.xib in Resources */,
 				B682E8E8249E96A600A6F975 /* UserSelectionViewController.xib in Resources */,
+				B63D4073249F8DFA002C0BFD /* PubRegisterViewController.xib in Resources */,
 				B682E8ED249E9C2E00A6F975 /* PubSelectionViewController.xib in Resources */,
 				B682E8C1249E650900A6F975 /* Assets.xcassets in Resources */,
 				B682E8D4249E853F00A6F975 /* TabView.xib in Resources */,
 				B682E8D7249E853F00A6F975 /* TabViewController.xib in Resources */,
+				B63D4075249FA766002C0BFD /* GoogleService-Info.plist in Resources */,
 				B682E8F1249EA7F400A6F975 /* PubLoginViewController.xib in Resources */,
 				B682E8BF249E650500A6F975 /* Main.storyboard in Resources */,
 			);
@@ -285,7 +307,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B63D4078249FAC55002C0BFD /* FirebaseAuth.swift in Sources */,
 				B682E8E7249E96A600A6F975 /* UserSelectionViewController.swift in Sources */,
+				B63D4072249F8DFA002C0BFD /* PubRegisterViewController.swift in Sources */,
 				B682E8BC249E650500A6F975 /* ViewController.swift in Sources */,
 				B682E8EC249E9C2E00A6F975 /* PubSelectionViewController.swift in Sources */,
 				B682E8E3249E949900A6F975 /* LoginPageViewController.swift in Sources */,
