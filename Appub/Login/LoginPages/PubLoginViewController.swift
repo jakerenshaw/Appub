@@ -118,7 +118,7 @@ class PubLoginViewController: UIViewController {
         case .EmailNotFound:
             errorLabel.text = "Email address not found"
         case .InvalidPassword:
-            errorLabel.text = "Please enter a valid password"
+            errorLabel.text = "Password is either invalid or incorrect"
         }
     }
     
